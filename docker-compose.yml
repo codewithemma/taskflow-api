@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 5000:8080
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=codewithemma
+      - POSTGRES_USER=codewithemma
+      - POSTGRES_DB=taskflow_db
